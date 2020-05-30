@@ -1,13 +1,13 @@
 #include "stdlib.h"
-#include "math.h"
 #include "thd.h"
+#include "math.h"
 
 float timedomain_thd_float(TimedomainTHD *self, float *samples)
 {
     _sync_puresin(self, samples);
     float v_fund_rms_ti = _calculate_fund_rms(self, samples);
     float v_rms = _calculate_rms(self, samples);
-    float thd = sqrtf32(pow(v_rms, 2) - pow(v_fund_rms_ti, 2)) / v_fund_rms_ti;
+    float thd = sqrtf(pow(v_rms, 2) - pow(v_fund_rms_ti, 2)) / v_fund_rms_ti;
     return thd;
 }
 
@@ -46,5 +46,5 @@ float _calculate_fund_rms(TimedomainTHD *self, float *samples)
 
 float _calculate_rms(TimedomainTHD *self, float *samples)
 {
-    return 0;
+    return 12346;
 }
