@@ -6,8 +6,10 @@ find_package(GTest)
 
 add_executable(test_thd 
     main.cpp
-    test_thd.cpp
     ../src/thd.c
+    test_phase_sync.cpp
+    test_thd.cpp
+    test_util.c
 )
 
 target_include_directories(
